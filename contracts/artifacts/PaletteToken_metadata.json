@@ -1,0 +1,1400 @@
+{
+	"compiler": {
+		"version": "0.6.12+commit.27d51765"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"name": "Approval",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "voter",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "proposalID",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "CancelVote",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "proposalID",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "Deposit",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "previousOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "proposalID",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "totalVote",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "limitToPass",
+						"type": "uint256"
+					}
+				],
+				"name": "ProposalFail",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "proposalID",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "mintAmount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "startTime",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "depositEndTime",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "votingEndTime",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "lockedAmount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "desc",
+						"type": "string"
+					}
+				],
+				"name": "ProposalMake",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "proposalID",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"name": "ProposalPass",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"name": "Transfer",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "voter",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "proposalID",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "Vote",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "proposalID",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "Withdraw",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "acceptOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					}
+				],
+				"name": "allowance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "approve",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "balanceOf",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "burn",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "burnFrom",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "cancelVote",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "ccID",
+				"outputs": [
+					{
+						"internalType": "uint64",
+						"name": "",
+						"type": "uint64"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "decimals",
+				"outputs": [
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "subtractedValue",
+						"type": "uint256"
+					}
+				],
+				"name": "decreaseAllowance",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "deposit",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "duration",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "durationLimit",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					}
+				],
+				"name": "excuteProposal",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "freeze",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "he",
+						"type": "address"
+					}
+				],
+				"name": "getHisDepositedID",
+				"outputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "",
+						"type": "uint256[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "he",
+						"type": "address"
+					}
+				],
+				"name": "getHisProposals",
+				"outputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "",
+						"type": "uint256[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getNextOwner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "addedValue",
+						"type": "uint256"
+					}
+				],
+				"name": "increaseAllowance",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "initialize",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "symbol",
+						"type": "string"
+					}
+				],
+				"name": "initializeERC20",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "initializeOwner",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "isFreezed",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					}
+				],
+				"name": "isGoodToDeposit",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					}
+				],
+				"name": "isGoodToVote",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "lockProxy",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "mintAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "desc",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "startTime",
+						"type": "uint256"
+					}
+				],
+				"name": "makeProposal",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					}
+				],
+				"name": "myTotalStake",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "name",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "proposalID",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "proposals",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "proposer",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "mintAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "lockedAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "startTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "depositEndTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "votingEndTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "enum PaletteToken.ProposalStatus",
+						"name": "status",
+						"type": "uint8"
+					},
+					{
+						"internalType": "string",
+						"name": "desc",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "receiver",
+				"outputs": [
+					{
+						"internalType": "bytes",
+						"name": "",
+						"type": "bytes"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "renounceOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint64",
+						"name": "chainID",
+						"type": "uint64"
+					}
+				],
+				"name": "setCrossChainID",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_duration",
+						"type": "uint256"
+					}
+				],
+				"name": "setDuration",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "limit",
+						"type": "uint256"
+					}
+				],
+				"name": "setDurationLimit",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newLockProxy",
+						"type": "address"
+					}
+				],
+				"name": "setLockProxy",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes",
+						"name": "newReceiver",
+						"type": "bytes"
+					}
+				],
+				"name": "setPaletteReceiver",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "stakeCounter",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "stakeTable",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "symbol",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalSupply",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "recipient",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "transfer",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "recipient",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "transferFrom",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "unFreeze",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "vote",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "voteBox",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "voteCounter",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					}
+				],
+				"name": "withdraw",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"details": "PLT, short for Palette Token, is the ERC20 token issued on Ethereum. It's' convenient to be transferred to Palette Chain by sending a cross-chain transaction on Ethereum which is based on  Poly cross-chain ecosystem.",
+			"kind": "dev",
+			"methods": {
+				"acceptOwnership()": {
+					"details": "the next owner must call this function to accept the ownership"
+				},
+				"allowance(address,address)": {
+					"details": "See {IERC20-allowance}."
+				},
+				"approve(address,uint256)": {
+					"details": "See {IERC20-approve}. Requirements: - `spender` cannot be the zero address."
+				},
+				"balanceOf(address)": {
+					"details": "See {IERC20-balanceOf}."
+				},
+				"burn(uint256)": {
+					"details": "Destroys `amount` tokens from the caller. See {ERC20-_burn}."
+				},
+				"burnFrom(address,uint256)": {
+					"details": "Destroys `amount` tokens from `account`, deducting from the caller's allowance. See {ERC20-_burn} and {ERC20-allowance}. Requirements: - the caller must have allowance for ``accounts``'s tokens of at least `amount`."
+				},
+				"cancelVote(uint256,uint256)": {
+					"details": "During voting duration, you can cancel you vote for this proposal and get your stake back.",
+					"params": {
+						"amount": "amount of stake voted you want to withdraw",
+						"id": "proposal ID "
+					}
+				},
+				"constructor": {
+					"details": "Constructor, initialize the basic information of contract."
+				},
+				"decimals()": {
+					"details": "Returns the number of decimals used to get its user representation. For example, if `decimals` equals `2`, a balance of `505` tokens should be displayed to a user as `5,05` (`505 / 10 ** 2`). Tokens usually opt for a value of 18, imitating the relationship between Ether and Wei. This is the value {ERC20} uses, unless {_setupDecimals} is called. NOTE: This information is only used for _display_ purposes: it in no way affects any of the arithmetic of the contract, including {IERC20-balanceOf} and {IERC20-transfer}."
+				},
+				"decreaseAllowance(address,uint256)": {
+					"details": "Atomically decreases the allowance granted to `spender` by the caller. This is an alternative to {approve} that can be used as a mitigation for problems described in {IERC20-approve}. Emits an {Approval} event indicating the updated allowance. Requirements: - `spender` cannot be the zero address. - `spender` must have allowance for the caller of at least `subtractedValue`."
+				},
+				"deposit(uint256,uint256)": {
+					"details": "After proposal made, everyone holding the PLT  can call `deposit()` to lock their PLT for this proposal.  There is two weeks to deposit after proposal made.  No one can deposit again if over time. We call this  duration as **Deposit Duration**. You can withdraw your PLT after this proposal executed.",
+					"params": {
+						"amount": "amount of PLT you want to lock for this proposal",
+						"id": "proposal ID "
+					}
+				},
+				"excuteProposal(uint256)": {
+					"details": "When Voting Duration is over, everyone can trigger the  **execution for this proposal** which will determine it success  or failure by calling `excuteProposa()`. If the voted stake is bigger  than the 2/3 of total stake for this proposal, this proposal will  execute successfully. So more PLT will be minted. Whatever the result,  the locked PLT will be returned to the proposer of this proposal.",
+					"params": {
+						"id": "proposal ID "
+					}
+				},
+				"freeze()": {
+					"details": "Set contract freezed and no issuing proposals can be make or execute."
+				},
+				"getHisDepositedID(address)": {
+					"details": "Get all proposals' id deposited by this address.",
+					"params": {
+						"he": "address to search"
+					}
+				},
+				"getHisProposals(address)": {
+					"details": "Get all proposals' id made by this address.",
+					"params": {
+						"he": "address to search"
+					}
+				},
+				"getNextOwner()": {
+					"details": "Get next owner and only current owner or next owner himself can see it."
+				},
+				"increaseAllowance(address,uint256)": {
+					"details": "Atomically increases the allowance granted to `spender` by the caller. This is an alternative to {approve} that can be used as a mitigation for problems described in {IERC20-approve}. Emits an {Approval} event indicating the updated allowance. Requirements: - `spender` cannot be the zero address."
+				},
+				"isGoodToDeposit(uint256)": {
+					"details": "Is now good to deposit for a proposal.",
+					"params": {
+						"id": "proposal ID "
+					}
+				},
+				"isGoodToVote(uint256)": {
+					"details": "Is now good to vote for a proposal.",
+					"params": {
+						"id": "proposal ID "
+					}
+				},
+				"makeProposal(uint256,string,uint256)": {
+					"details": "When you want to mint more PLT to the Palette Chain,  you need to **make a proposal** in PLT contract with some PLT  locked by calling `makeProposal()`. To do that , you need at  least 1% of total supply in your account. This proposal will  be made with a `proposalID` which is increasing from 1. It will be released when this proposal executed. ",
+					"params": {
+						"desc": "description for this proposal",
+						"mintAmount": "amount to be minted of PLT",
+						"startTime": "when proposal start"
+					}
+				},
+				"myTotalStake(uint256)": {
+					"details": "Your total stake for a proposal.",
+					"params": {
+						"id": "proposal ID "
+					}
+				},
+				"name()": {
+					"details": "Returns the name of the token."
+				},
+				"owner()": {
+					"details": "Returns the address of the current owner."
+				},
+				"renounceOwnership()": {
+					"details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
+				},
+				"setCrossChainID(uint64)": {
+					"details": "Set cross chain ID of Palette Chain.",
+					"params": {
+						"chainID": "Palette chain ID"
+					}
+				},
+				"setDuration(uint256)": {
+					"details": "Set duration length for deposit and voting duration. default 2 weeks.",
+					"params": {
+						"_duration": "duration length"
+					}
+				},
+				"setDurationLimit(uint256)": {
+					"details": "It's not recommended to change limit of duration. The limit  is 1 day by default.",
+					"params": {
+						"limit": "new limit of duration."
+					}
+				},
+				"setLockProxy(address)": {
+					"details": "Set lock proxy address where crosschain PLT will locked in.",
+					"params": {
+						"newLockProxy": "lock proxy contract address"
+					}
+				},
+				"setPaletteReceiver(bytes)": {
+					"details": "Set palette receiver who receive the crosschain PLT.",
+					"params": {
+						"newReceiver": "Palette chain address"
+					}
+				},
+				"symbol()": {
+					"details": "Returns the symbol of the token, usually a shorter version of the name."
+				},
+				"totalSupply()": {
+					"details": "See {IERC20-totalSupply}."
+				},
+				"transfer(address,uint256)": {
+					"details": "See {IERC20-transfer}. Requirements: - `recipient` cannot be the zero address. - the caller must have a balance of at least `amount`."
+				},
+				"transferFrom(address,address,uint256)": {
+					"details": "See {IERC20-transferFrom}. Emits an {Approval} event indicating the updated allowance. This is not required by the EIP. See the note at the beginning of {ERC20}; Requirements: - `sender` and `recipient` cannot be the zero address. - `sender` must have a balance of at least `amount`. - the caller must have allowance for ``sender``'s tokens of at least `amount`."
+				},
+				"transferOwnership(address)": {
+					"details": "set the next owner."
+				},
+				"unFreeze()": {
+					"details": "Set contract unfreezed."
+				},
+				"vote(uint256,uint256)": {
+					"details": "After Deposit Duration, this proposal will move into **Voting Duration**. During this time, everyone who deposit  their PLT would get some **stake** which is same number as  their locked PLT. And only people hold the stake can vote for  this proposal. Call `vote()` to vote **yes** for this proposal.  If you hold stake and don't vote during Voting Duration, it  means you don't support this proposal.",
+					"params": {
+						"amount": "amount of stake you want to vote for this proposal",
+						"id": "proposal ID "
+					}
+				},
+				"withdraw(uint256)": {
+					"details": "After proposal executed, everyone who deposit to get  stake can **withdraw** their locked PLT by calling `withdraw()`. ",
+					"params": {
+						"id": "proposal ID "
+					}
+				}
+			},
+			"title": "Palette token",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/PaletteToken.sol": "PaletteToken"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts/GSN/Context.sol": {
+			"keccak256": "0xdb26cbf4d028490f49831a7865c2fe1b28db44b535ca8d343785a3b768aae183",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://840b14ce0315c47d49ba328f1f9fa7654ded1c9e1559e6c5e777a7b2dc28bf0a",
+				"dweb:/ipfs/QmTLLabn4wcfGro9LEmUXUN2nwKqZSotXMvjDCLXEnLtZP"
+			]
+		},
+		"@openzeppelin/contracts/math/SafeMath.sol": {
+			"keccak256": "0x9a9cf02622cd7a64261b10534fc3260449da25c98c9e96d1b4ae8110a20e5806",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2df142592d1dc267d9549049ee3317fa190d2f87eaa565f86ab05ec83f7ab8f5",
+				"dweb:/ipfs/QmSkJtcfWo7c42KnL5hho6GFxK6HRNV91XABx1P7xDtfLV"
+			]
+		},
+		"@openzeppelin/contracts/proxy/Initializable.sol": {
+			"keccak256": "0x8eee8bd8c216a3e437bf7a4c9844348f47a2d990e5b06cd96d250e33ab04c25a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c6bb2af880b12be26b148ee99ac3a984168e7fc74721bab9cd44598a0669b038",
+				"dweb:/ipfs/QmPfFDaXZbThJgaVim7nvxrw1RuD2xKWCG89K6pznmC8pJ"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+			"keccak256": "0x5c26b39d26f7ed489e555d955dcd3e01872972e71fdd1528e93ec164e4f23385",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://efdc632af6960cf865dbc113665ea1f5b90eab75cc40ec062b2f6ae6da582017",
+				"dweb:/ipfs/QmfAZFDuG62vxmAN9DnXApv7e7PMzPqi4RkqqZHLMSQiY5"
+			]
+		},
+		"@openzeppelin/contracts/utils/Address.sol": {
+			"keccak256": "0xf5fa8cbdffa5ef8be49b246b5628facc30b71707e78a45d80d93b64eff3fe390",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://774e78a9ff32792cc95db4d2ceaf3a7965bb7f0bea5e6cb7cff182b450d44b37",
+				"dweb:/ipfs/QmRRMC4uj7eAcLW7chynA3sNEYULMFazdLwQHKHQPyzAbA"
+			]
+		},
+		"contracts/PaletteToken.sol": {
+			"keccak256": "0xad081a48e4b885347a1c85f9eb55f084316d6141306f24b3ca09cdd15e27b93e",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a18292ed937f051df32346ddaddd2a1fe376708cef08bf4c5ab21bbf3076d3c6",
+				"dweb:/ipfs/QmRvfraWPJdg1uRNPbjjg3hXBxemrhTYssRenvfHBLQQ6B"
+			]
+		},
+		"contracts/access/OwnableWithAccept.sol": {
+			"keccak256": "0x999177e2abad5258f5b898f3f9d8878c59a4c78b1f7b1f0e697d28ac9b83f2c6",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://fd5ba28bef0015c4b62cb9f4f6cc9d87b67973637a090ff9b5b239c307f9d078",
+				"dweb:/ipfs/QmUCBnyq14FDajxrc44azYo2kxvkxtR9WLDpXndVx9fCmC"
+			]
+		},
+		"contracts/erc20/ERC20Burnable.sol": {
+			"keccak256": "0xab44817bbdaa56a986caabed9663d53de7637624dda87584401aac2a2d5a2017",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://1ac3e6709756209991c915a6a88cbb494e616b089bb3c6cc0f2000c3118a1b78",
+				"dweb:/ipfs/QmVb3swTR2mm5UsMjorKJ5VuJxn9vFNBFNqs3i54uebzPj"
+			]
+		},
+		"contracts/erc20/ERC20Initializable.sol": {
+			"keccak256": "0x68bb9972add1e48ead1faed43bada90c1f3e6fce12ad80fc0ce740790d32e624",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6ec89b99cda836997bd552938a4ffeaa299c7ff06090185bd4f066fa6726cb28",
+				"dweb:/ipfs/QmefVJnzr7qgwX7RUGzCccZ79C5sAzvL8tU8vzYkJBXxCL"
+			]
+		}
+	},
+	"version": 1
+}
